@@ -5,15 +5,15 @@ import PokemonDetail from './PokemonDetail.js';
 import {Route, Switch} from 'react-router-dom';
 import '../stylesheets/App.css';
 
+import ls from '../services/local-storage';
+
 function App() {
   const [pokemons] = useState(data);
-  const [favorites, setFavorites] = useState(
-    JSON.parse(localStorage.getItem('favorites') || [])
-  );
+  const [favorites, setFavorites] = useState(ls.get('favorites', []));
 
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  });
+    ls.set('favorites', favorites);
+  }, [favorites]);
 
   const renderPokeDetail = (routerProps) => {
     const routerpokeId = routerProps.match.params.pokeId;
@@ -40,18 +40,13 @@ function App() {
         return pokemon.id === clickedPokemon;
       });
       setFavorites([...favorites, pokemonfav]);
-      // localStorage.setItem('favorites', JSON.stringify(favorites));
-
-      // setFavoriteslocal([...favorites, pokemonFavorited]);
 
       return;
     }
-    // localStorage.setItem('favorites', JSON.stringify(favorites));
     const newFavoriters = favorites.filter(
       (pokemon) => pokemon.id !== clickedPokemon
     );
     setFavorites(newFavoriters);
-    // setFavoriteslocal(newFavoriters);
   };
 
   return (
