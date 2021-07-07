@@ -2,7 +2,7 @@
 
 **Objetivo:** El ejercicio consiste en desarrollar una página web sencilla con React.
 
-![EnunciadoEvaluaciónIntermedia](https://user-images.githubusercontent.com/81681513/121150943-3e17a380-c844-11eb-88c4-d646631c2e52.jpg)
+![EnunciadoEvaluaciónIntermedia](https://raw.githubusercontent.com/NurAhissami/poke-list/main/pokemon.png)
 
 ## Descripción del proyecto:
 
